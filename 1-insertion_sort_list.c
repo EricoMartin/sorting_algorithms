@@ -25,22 +25,22 @@ void insertion_sort_list(listint_t **list)
 			temp = curr->next;
 			curr->next = temp->next
 			temp->prev = curr->prev
+
+			if (curr->prev)
+				curr->prev->next = temp;
+
+			if (temp->next)
+				temp->next->prev = curr;
+
+			curr->prev = temp;
+			temp->curr = prev;
+
+			if (temp->prev)
+				curr = temp->prev;
+			else
+				*list = temp;
+
+			print_list(*list);
 		}
-
-		if (curr->prev)
-			curr->prev->next = temp;
-
-		if (temp->next)
-			temp->next->prev = curr;
-
-		curr->prev = temp;
-		temp->curr = prev;
-
-		if (temp->prev)
-			curr = temp->prev;
-		else
-			*list = temp;
-
-		print_list(*list);
 	}
 }
