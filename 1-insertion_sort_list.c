@@ -23,8 +23,8 @@ void insertion_sort_list(listint_t **list)
 		while (curr->next && (curr->next->n < curr->n))
 		{
 			temp = curr->next;
-			curr->next = temp->next
-			temp->prev = curr->prev
+			curr->next = temp->next;
+			temp->prev = curr->prev;
 
 			if (curr->prev)
 				curr->prev->next = temp;
@@ -33,7 +33,7 @@ void insertion_sort_list(listint_t **list)
 				temp->next->prev = curr;
 
 			curr->prev = temp;
-			temp->curr = prev;
+			temp->next = curr;
 
 			if (temp->prev)
 				curr = temp->prev;
